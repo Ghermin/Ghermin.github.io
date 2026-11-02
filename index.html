@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bored Dev Playground</title>
+  <meta name="description" content="Les petits projets d'un dev qui s'ennuie : applis web, Android et Windows, libres et gratuites.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0e12" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Bored Dev Playground">
+  <meta property="og:description" content="Les petits projets d'un dev qui s'ennuie.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./" aria-label="Bored Dev Playground, accueil">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="logo-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7c5cff"/>
+            <stop offset="1" stop-color="#ff6b6b"/>
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="16" fill="url(#logo-bg)"/>
+        <path d="M14 27h14M36 27h14" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M16 27a5 5 0 0 0 10 0zM38 27a5 5 0 0 0 10 0z" fill="#fff"/>
+        <rect class="cursor" x="24" y="41" width="16" height="4.5" rx="2.25" fill="#fff"/>
+      </svg>
+      <span>bored dev playground</span>
+    </a>
+    <a class="gh" href="https://github.com/Ghermin" rel="me">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      <span>Ghermin</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="kicker">$ ls ~/projets <span class="count">6 résultats</span></p>
+      <h1>Bored Dev <span class="grad">Playground</span></h1>
+      <p class="lead">Des petits outils faits quand je m'ennuie, parce qu'un problème du quotidien méritait mieux qu'une appli pleine de pubs. Libres, gratuits, sans compte.</p>
+    </section>
+
+    <ul class="grid" role="list">
+      <li class="card">
+        <img class="icon" src="assets/projects/blindtest.svg" alt="" width="56" height="56">
+        <h2><a href="https://ghermin.github.io/blindtest-de-fin-de-soiree/">Blind Test de fin de soirée</a></h2>
+        <p>Un blind test à plusieurs : l'appli Android héberge la partie, les invités répondent depuis leur téléphone et la TV joue les extraits. Playlists Spotify ou Deezer.</p>
+        <ul class="tags" role="list"><li>Android</li><li>Multijoueur</li><li>Musique</li></ul>
+        <div class="links">
+          <a class="primary" href="https://ghermin.github.io/blindtest-de-fin-de-soiree/">Ouvrir <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/Ghermin/blindtest-de-fin-de-soiree">Code</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="assets/projects/accordeur.svg" alt="" width="56" height="56">
+        <h2><a href="https://ghermin.github.io/accordeur/">Accordeur</a></h2>
+        <p>Accordeur de guitare dans le navigateur. Détecte la corde jouée toute seule, propose huit accordages (Drop D, DADGAD, Open G…). Rien n'est enregistré ni envoyé.</p>
+        <ul class="tags" role="list"><li>Web</li><li>Audio</li><li>Guitare</li></ul>
+        <div class="links">
+          <a class="primary" href="https://ghermin.github.io/accordeur/">Ouvrir <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/Ghermin/accordeur">Code</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="assets/projects/autowash.png" alt="" width="56" height="56">
+        <h2><a href="https://github.com/Ghermin/autowash/releases/latest">Autowash</a></h2>
+        <p>Analyse la sécurité et la santé d'un PC Windows, explique chaque problème et le corrige en un clic : malwares, vulnérabilités, nettoyage, pilotes, mises à jour.</p>
+        <ul class="tags" role="list"><li>Windows</li><li>Sécurité</li><li>Python</li></ul>
+        <div class="links">
+          <a class="primary" href="https://github.com/Ghermin/autowash/releases/latest">Télécharger <span aria-hidden="true">↓</span></a>
+          <a href="https://github.com/Ghermin/autowash">Code</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="assets/projects/camtel.svg" alt="" width="56" height="56">
+        <h2><a href="https://ghermin.github.io/camtel/">CamTel</a></h2>
+        <p>Ton téléphone Android devient une webcam pour Windows, en Wi-Fi ou en USB. Marche dans Zoom, Teams, Discord, OBS. L'alternative libre et sans pub à DroidCam.</p>
+        <ul class="tags" role="list"><li>Android</li><li>Windows</li><li>Webcam</li></ul>
+        <div class="links">
+          <a class="primary" href="https://ghermin.github.io/camtel/">Ouvrir <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/Ghermin/camtel">Code</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="assets/projects/no-noob-no-arnaque.svg" alt="" width="56" height="56">
+        <h2><a href="https://ghermin.github.io/no-noob-no-arnaque/">No Noob No Arnaque</a></h2>
+        <p>Diagnostic OBD-II dans le navigateur pour vérifier ce que dit le garagiste : codes défaut expliqués, effacements suspects, comparaison avant et après réparation.</p>
+        <ul class="tags" role="list"><li>Web</li><li>Auto</li><li>OBD-II</li></ul>
+        <div class="links">
+          <a class="primary" href="https://ghermin.github.io/no-noob-no-arnaque/">Ouvrir <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/Ghermin/no-noob-no-arnaque">Code</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="assets/projects/la-quittance.png" alt="" width="56" height="56">
+        <h2><a href="https://ghermin.github.io/la-quittance/">La Quittance</a></h2>
+        <p>Génère les quittances de loyer en PDF et les envoie par Gmail depuis le téléphone, avec un rappel chaque mois. Aucun serveur : tout reste sur l'appareil.</p>
+        <ul class="tags" role="list"><li>PWA</li><li>Android</li><li>Location</li></ul>
+        <div class="links">
+          <a class="primary" href="https://ghermin.github.io/la-quittance/">Ouvrir <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/Ghermin/la-quittance">Code</a>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>Fait par <a href="https://github.com/Ghermin">Ghermin</a>, un jour d'ennui.</p>
+  </footer>
+</body>
+</html>
