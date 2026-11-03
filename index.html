@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kit/playground.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,12 +43,22 @@
 
   <main>
     <section class="hero">
-      <p class="kicker">$ ls ~/projets <span class="count">6 résultats</span></p>
+      <p class="kicker">$ ls ~/projets <span class="count">7 résultats</span></p>
       <h1>Bored Dev <span class="grad">Playground</span></h1>
       <p class="lead">Des petits outils faits quand je m'ennuie, parce qu'un problème du quotidien méritait mieux qu'une appli pleine de pubs. Libres, gratuits, sans compte.</p>
     </section>
 
-    <ul class="grid" role="list">
+    <ul class="grid" id="projets" role="list">
+      <li class="card">
+        <img class="icon" src="assets/projects/impression-locale.svg" alt="" width="56" height="56">
+        <h2><a href="https://ghermin.github.io/impression-locale/">Impression locale</a></h2>
+        <p>Imprimer sur une jet d'encre Epson depuis Android, sans appli Epson et sans passer par Internet : l'imprimante apparaît dans le menu Imprimer de toutes les applis.</p>
+        <ul class="tags" role="list"><li>Android</li><li>Impression</li><li>Epson</li></ul>
+        <div class="links">
+          <a class="primary" href="https://ghermin.github.io/impression-locale/">Ouvrir <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/Ghermin/impression-locale">Code</a>
+        </div>
+      </li>
       <li class="card">
         <img class="icon" src="assets/projects/blindtest.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/blindtest-de-fin-de-soiree/">Blind Test de fin de soirée</a></h2>
