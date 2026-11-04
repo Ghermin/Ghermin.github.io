@@ -271,6 +271,11 @@ const TARGETS = {
     });
     android(icon, path.join(root, 'android', 'app', 'src', 'main', 'res'));
   },
+  'mots-fleches'(icon) {
+    web(icon, P('mots-croises', 'icons'), {
+      i192: 'icon-192.png', i512: 'icon-512.png', mask512: 'icon-maskable-512.png',
+    });
+  },
 };
 
 // Les icônes des cartes du playground.

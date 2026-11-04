@@ -12,6 +12,7 @@ for dest in \
   blindtest-de-fin-de-soiree/site/playground.css \
   camtel/docs/playground.css \
   la-quittance/css/playground.css \
+  mots-croises/css/playground.css \
   no-noob-no-arnaque/src/playground.css \
   perso-torrent/docs/playground.css \
   perso-torrent/ui/playground.css \
