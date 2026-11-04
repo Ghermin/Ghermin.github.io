@@ -272,7 +272,7 @@ const TARGETS = {
     android(icon, path.join(root, 'android', 'app', 'src', 'main', 'res'));
   },
   'mots-fleches'(icon) {
-    web(icon, P('mots-croises', 'icons'), {
+    web(icon, P('mots-fleches', 'icons'), {
       i192: 'icon-192.png', i512: 'icon-512.png', mask512: 'icon-maskable-512.png',
     });
   },
