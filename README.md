@@ -18,3 +18,21 @@ Pour ajouter un projet : copier un bloc `<li class="card">` dans `index.html` et
 
 - Chaque page garde sa police (une seule, plus JetBrains Mono pour les détails) et ses couleurs, en redéfinissant `--pg-accent`, `--pg-accent-2`, `--pg-bg`… après le kit.
 - Chaque projet en garde une copie pour fonctionner hors ligne. Après une modification du kit : `sh kit/sync.sh`, puis commiter dans chaque projet (et `npm run pages` pour le Blind Test).
+
+## Icônes
+
+Toutes les icônes (playground et projets) sortent de `brand/icons/*.svg` et suivent les mêmes règles, pour qu'on voie qu'elles vont ensemble sans se ressembler :
+
+- carré de 64 aux coins arrondis (rx 16), dégradé en diagonale à deux couleurs, propre à chaque projet ;
+- un dessin blanc au trait épais (5, bouts ronds), avec un seul détail en blanc à 55 % ;
+- souvent un trait horizontal en bas, le « curseur » qui fait la bouche du logo du playground.
+
+`brand/sheet.png` montre l'ensemble. Après une modification d'un SVG :
+
+```bash
+cd brand && npm install && node build.js            # toutes les icônes
+node build.js camtel                                # une seule
+node build.js --sheet                               # refait sheet.png
+```
+
+Le script écrit directement dans les projets voisins : favicons (SVG, ICO, PNG), icônes Apple et de manifeste (avec version masquable), `.ico` des applis Windows, et icônes adaptatives Android (fond, dessin et version monochrome pour les icônes à thème d'Android 13). Ensuite, commiter dans chaque projet touché. Le dessin du `<g id="glyph">` ne doit contenir que des `<path>` blancs : c'est ce qui permet de le convertir en vector drawable Android.
