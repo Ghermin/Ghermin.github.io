@@ -13,6 +13,8 @@ for dest in \
   camtel/docs/playground.css \
   la-quittance/css/playground.css \
   no-noob-no-arnaque/src/playground.css \
+  perso-torrent/docs/playground.css \
+  perso-torrent/ui/playground.css \
   printer-where/docs/playground.css
 do
   if [ -d "$projects/$(dirname "$dest")" ]; then
