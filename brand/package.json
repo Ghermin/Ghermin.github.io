@@ -1,0 +1,11 @@
+{
+  "name": "bored-dev-brand",
+  "private": true,
+  "description": "Génère les icônes de tous les projets à partir des SVG de brand/icons.",
+  "scripts": {
+    "icons": "node build.js"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "2.6.2"
+  }
+}

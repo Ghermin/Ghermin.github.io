@@ -1,14 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="playground-bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#7c5cff"/>
       <stop offset="1" stop-color="#ff6b6b"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
-  <!-- Yeux mi-clos : le dev s'ennuie -->
-  <path d="M14 27h14M36 27h14" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
-  <path d="M16 27a5 5 0 0 0 10 0zM38 27a5 5 0 0 0 10 0z" fill="#fff"/>
-  <!-- Bouche en curseur de terminal -->
-  <rect x="24" y="41" width="16" height="4.5" rx="2.25" fill="#fff"/>
+  <rect width="64" height="64" rx="16" fill="url(#playground-bg)"/>
+  <g id="glyph" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Yeux mi-clos : le dev s'ennuie -->
+    <path d="M14 27h14M36 27h14" stroke-width="4"/>
+    <path d="M16 27a5 5 0 0 0 10 0zM38 27a5 5 0 0 0 10 0z" fill="#fff" stroke="none"/>
+    <!-- Bouche en curseur de terminal -->
+    <path d="M26 43h12"/>
+  </g>
 </svg>
