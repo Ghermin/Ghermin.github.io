@@ -16,7 +16,8 @@ for dest in \
   no-noob-no-arnaque/src/playground.css \
   perso-torrent/docs/playground.css \
   perso-torrent/ui/playground.css \
-  printer-where/docs/playground.css
+  printer-where/docs/playground.css \
+  rgb-manager/docs/playground.css
 do
   if [ -d "$projects/$(dirname "$dest")" ]; then
     cp playground.css "$projects/$dest"
