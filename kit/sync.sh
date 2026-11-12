@@ -11,7 +11,6 @@ for dest in \
   autowash/docs/playground.css \
   blindtest-de-fin-de-soiree/site/playground.css \
   camtel/docs/playground.css \
-  gomme/playground.css \
   la-quittance/css/playground.css \
   mots-fleches/css/playground.css \
   no-noob-no-arnaque/src/playground.css \
