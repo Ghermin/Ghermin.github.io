@@ -246,6 +246,9 @@ const TARGETS = {
   according(icon) {
     web(icon, P('according'), { svg: 'favicon.svg' });
   },
+  gomme(icon) {
+    web(icon, P('gomme'), { svg: 'favicon.svg' });
+  },
   autowash(icon) {
     const root = P('autowash');
     write(path.join(root, 'assets', 'autowash.ico'), ico(icon));
