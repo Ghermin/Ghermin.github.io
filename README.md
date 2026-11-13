@@ -16,7 +16,8 @@ Pour ajouter un projet : copier un bloc `<li class="card">` dans `index.html` et
 
 `kit/playground.css` est le design system partagé par toutes les pages GitHub des projets : couleurs neutres (clair / sombre automatique), cartes, boutons, puces, gabarit des pages vitrine, et le bandeau « bored dev playground » qui ramène ici.
 
-- Chaque page garde sa police (une seule, plus JetBrains Mono pour les détails) et ses couleurs, en redéfinissant `--pg-accent`, `--pg-accent-2`, `--pg-bg`… après le kit.
+- Deux polices pour tout le playground : Bricolage Grotesque (`--pg-font`) et JetBrains Mono (`--pg-mono`), chargées par chaque page avec le lien Google Fonts indiqué en tête du kit.
+- Chaque page a ses couleurs, celles du dégradé de son icône, en redéfinissant `--pg-accent`, `--pg-accent-2` (le dégradé des boutons) et des neutres teintés (`--pg-bg`…) après le kit. Pas d'autre couleur décorative.
 - Chaque projet en garde une copie pour fonctionner hors ligne. Après une modification du kit : `sh kit/sync.sh`, puis commiter dans chaque projet (et `npm run pages` pour le Blind Test).
 
 ## Icônes

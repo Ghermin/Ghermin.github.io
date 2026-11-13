@@ -1,7 +1,3 @@
-:root {
-  --display: "Bricolage Grotesque", system-ui, sans-serif;
-}
-
 *, *::before, *::after { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; }
@@ -15,7 +11,7 @@ body {
   background-image: radial-gradient(var(--pg-dot) 1px, transparent 1px);
   background-size: 22px 22px;
   color: var(--pg-text);
-  font-family: var(--display);
+  font-family: var(--pg-font);
   font-size: 17px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;

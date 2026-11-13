@@ -7,17 +7,17 @@ projects=..
 [ -d ../../autowash ] && projects=../..
 
 for dest in \
-  according/playground.css \
+  accordeur/playground.css \
   autowash/docs/playground.css \
+  averse/docs/playground.css \
+  averse/ui/playground.css \
   blindtest-de-fin-de-soiree/site/playground.css \
   camtel/docs/playground.css \
   dream-dps-meter/docs/playground.css \
+  impression-locale/docs/playground.css \
   la-quittance/css/playground.css \
   mots-fleches/css/playground.css \
   no-noob-no-arnaque/src/playground.css \
-  perso-torrent/docs/playground.css \
-  perso-torrent/ui/playground.css \
-  printer-where/docs/playground.css \
   rgb-manager/docs/playground.css
 do
   if [ -d "$projects/$(dirname "$dest")" ]; then
