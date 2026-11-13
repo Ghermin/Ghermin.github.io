@@ -271,6 +271,11 @@ const TARGETS = {
     });
     android(icon, path.join(root, 'android', 'app', 'src', 'main', 'res'));
   },
+  'dps-meters'(icon) {
+    const root = P('dream-dps-meter');
+    web(icon, path.join(root, 'docs'), { svg: 'favicon.svg', i192: 'icon-192.png' });
+    write(path.join(root, 'installer', 'app.ico'), ico(icon));
+  },
   'mots-fleches'(icon) {
     web(icon, P('mots-fleches', 'icons'), {
       i192: 'icon-192.png', i512: 'icon-512.png', mask512: 'icon-maskable-512.png',
