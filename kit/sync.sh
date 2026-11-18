@@ -15,6 +15,7 @@ for dest in \
   camtel/docs/playground.css \
   dream-dps-meter/docs/playground.css \
   impression-locale/docs/playground.css \
+  jus/docs/playground.css \
   la-quittance/css/playground.css \
   mots-fleches/css/playground.css \
   no-noob-no-arnaque/src/playground.css \

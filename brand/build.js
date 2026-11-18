@@ -276,6 +276,11 @@ const TARGETS = {
     web(icon, path.join(root, 'docs'), { svg: 'favicon.svg', i192: 'icon-192.png' });
     write(path.join(root, 'installer', 'app.ico'), ico(icon));
   },
+  jus(icon) {
+    const root = P('jus');
+    web(icon, path.join(root, 'docs'), { svg: 'favicon.svg', i192: 'icon-192.png' });
+    write(path.join(root, 'assets', 'jus.ico'), ico(icon));
+  },
   'mots-fleches'(icon) {
     web(icon, P('mots-fleches', 'icons'), {
       i192: 'icon-192.png', i512: 'icon-512.png', mask512: 'icon-maskable-512.png',
