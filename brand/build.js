@@ -250,6 +250,8 @@ const TARGETS = {
     const root = P('autowash');
     write(path.join(root, 'assets', 'autowash.ico'), ico(icon));
     write(path.join(root, 'assets', 'autowash.png'), png(variant(icon), 256).asPng());
+    // logo de la barre latérale, une taille par zoom Windows (100, 125, 150 et 200 %) : lu par Tk, sans Pillow
+    for (const s of [34, 42, 51, 68]) write(path.join(root, 'assets', `logo-${s}.png`), png(variant(icon), s).asPng());
     web(icon, path.join(root, 'docs'), { svg: 'favicon.svg' });
   },
   camtel(icon) {
