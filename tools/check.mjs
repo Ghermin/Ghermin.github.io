@@ -110,10 +110,10 @@ if (!read('robots.txt').includes(`Sitemap: ${HOME}sitemap.xml`)) fail('robots.tx
 if (!exists('og.png')) fail('og.png manquant (node build.js --og dans brand/)');
 if (!html.includes(`<meta property="og:image" content="${HOME}og.png">`)) fail('index.html : og:image manquant');
 
-// La 404 est servie à n'importe quelle profondeur (/jus/xyz) : pas de chemin relatif.
+// La 404 est servie à n'importe quelle profondeur (/xyz/abc) : pas de chemin relatif.
 const page404 = read('404.html');
 for (const m of page404.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
-  if (!/^(\/|https:|#)/.test(m[1])) fail(`404.html : chemin relatif « ${m[1]} », il casserait sous /projet/…`);
+  if (!/^(\/|https:|#)/.test(m[1])) fail(`404.html : chemin relatif « ${m[1]} », il casserait sous /xyz/abc`);
 }
 
 // ------------------------------------------------------------- en ligne

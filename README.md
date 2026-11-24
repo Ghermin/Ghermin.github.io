@@ -19,7 +19,7 @@ node tools/check.mjs --en-ligne  # en plus : chaque page de projet répond et ra
 
 La CI (`.github/workflows/verifier.yml`) lance la version en ligne à chaque push et chaque lundi : un badge « nouveau » de plus de 30 jours ou une page de projet cassée la fait échouer.
 
-Le filtre par plateforme marche sans script (boutons radio et `:has()`), la page a une CSP sans aucun script. `404.html` sert pour toute adresse inconnue du site, projets compris.
+Le filtre par plateforme marche sans script (boutons radio et `:has()`), la page a une CSP sans aucun script. `404.html` sert pour les adresses inconnues hors des projets (sous `/jus/…`, c'est la 404 du projet ou celle de GitHub).
 
 ## Kit commun aux pages de projets
 
