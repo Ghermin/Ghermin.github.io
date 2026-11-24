@@ -10,7 +10,16 @@ Pour la lancer en local :
 python -m http.server 5180
 ```
 
-Pour ajouter un projet : copier un bloc `<li class="card">` dans `index.html` et mettre son icône dans `assets/projects/`.
+Pour ajouter un projet : copier un bloc `<li class="card">` dans `index.html` (avec ses filtres dans `data-p`), créer son icône (voir plus bas), puis lancer la vérification, qui liste ce qui manque (compteurs, `sitemap.xml`, `kit/sync.sh`, icône…) :
+
+```bash
+node tools/check.mjs             # hors ligne
+node tools/check.mjs --en-ligne  # en plus : chaque page de projet répond et ramène ici (Node 18+)
+```
+
+La CI (`.github/workflows/verifier.yml`) lance la version en ligne à chaque push et chaque lundi : un badge « nouveau » de plus de 30 jours ou une page de projet cassée la fait échouer.
+
+Le filtre par plateforme marche sans script (boutons radio et `:has()`), la page a une CSP sans aucun script. `404.html` sert pour toute adresse inconnue du site, projets compris.
 
 ## Kit commun aux pages de projets
 
@@ -34,6 +43,7 @@ Toutes les icônes (playground et projets) sortent de `brand/icons/*.svg` et sui
 cd brand && npm install && node build.js            # toutes les icônes
 node build.js camtel                                # une seule
 node build.js --sheet                               # refait sheet.png
+node build.js --og                                  # refait og.png, l'image de partage (icônes dans l'ordre des cartes)
 ```
 
 Le script écrit directement dans les projets voisins : favicons (SVG, ICO, PNG), icônes Apple et de manifeste (avec version masquable), `.ico` des applis Windows, et icônes adaptatives Android (fond, dessin et version monochrome pour les icônes à thème d'Android 13). Ensuite, commiter dans chaque projet touché. Le dessin du `<g id="glyph">` ne doit contenir que des `<path>` blancs : c'est ce qui permet de le convertir en vector drawable Android.

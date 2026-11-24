@@ -283,6 +283,13 @@ const TARGETS = {
     web(icon, path.join(root, 'docs'), { svg: 'favicon.svg', i192: 'icon-192.png' });
     write(path.join(root, 'assets', 'jus.ico'), ico(icon));
   },
+  'rgb-manager'(icon) {
+    const root = P('rgb-manager');
+    // icon.png : favicon, logo de la page et aperçu de partage
+    web(icon, path.join(root, 'docs'), { svg: 'favicon.svg', i512: 'icon.png' });
+    write(path.join(root, 'assets', 'icon.ico'), ico(icon)); // icône de l'exe, embarquée par build.ps1
+    write(path.join(root, 'assets', 'icon-256.png'), png(variant(icon), 256).asPng()); // README
+  },
   'mots-fleches'(icon) {
     web(icon, P('mots-fleches', 'icons'), {
       i192: 'icon-192.png', i512: 'icon-512.png', mask512: 'icon-maskable-512.png',
@@ -322,13 +329,41 @@ function sheet(ids) {
   write(path.join(BRAND, 'sheet.png'), new Resvg(svg, { fitTo: { mode: 'original' } }).render().asPng());
 }
 
+// Image de partage (og.png, 1200 × 630) : le logo du playground et les icônes des cartes,
+// dans l'ordre de index.html, sur le fond pointillé de la page. Sans texte : og:title s'en charge.
+function og() {
+  const html = fs.readFileSync(path.join(PLAYGROUND, 'index.html'), 'utf8');
+  const ids = [...html.matchAll(/src="assets\/projects\/([\w-]+)\.svg"/g)].map((m) => m[1]);
+  const img = (svg, x, y, s) => `<image x="${x}" y="${y}" width="${s}" height="${s}" href="data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}"/>`;
+  // le moins de cases vides possible, puis la grille la plus proche d'un rectangle 4:3
+  const empty = (c) => (c - (ids.length % c)) % c;
+  const cols = [3, 4, 5, 6].sort((a, b) => empty(a) - empty(b) || Math.abs(a - 4) - Math.abs(b - 4))[0];
+  const rows = Math.ceil(ids.length / cols);
+  const gap = 24;
+  const s = Math.min(120, Math.floor((560 - gap * (cols - 1)) / cols), Math.floor((470 - gap * (rows - 1)) / rows));
+  const gx = 1104 - (cols * s + (cols - 1) * gap);
+  const gy = (630 - (rows * s + (rows - 1) * gap)) / 2;
+  const lastShift = (empty(cols) * (s + gap)) / 2; // dernière ligne incomplète : centrée
+  const icons = ids.map((id, i) => {
+    const r = Math.floor(i / cols);
+    return img(variant(load(id)), gx + (i % cols) * (s + gap) + (r === rows - 1 ? lastShift : 0), gy + r * (s + gap), s);
+  });
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+    <defs><pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1.4" fill="rgba(23,22,26,0.11)"/></pattern></defs>
+    <rect width="1200" height="630" fill="#f6f5f1"/><rect width="1200" height="630" fill="url(#dots)"/>
+    ${img(load('playground').svg, 96, 195, 240)}${icons.join('')}</svg>`;
+  write(path.join(PLAYGROUND, 'og.png'), new Resvg(svg, { fitTo: { mode: 'original' } }).render().asPng());
+}
+
 // ---------------------------------------------------------------- main
 
 const args = process.argv.slice(2);
 const all = Object.keys(TARGETS);
 const ids = args.filter((a) => !a.startsWith('--'));
 const chosen = ids.length ? ids : all;
-if (args.includes('--sheet')) {
+if (args.includes('--og')) {
+  og();
+} else if (args.includes('--sheet')) {
   sheet(chosen);
 } else {
   for (const id of chosen) {

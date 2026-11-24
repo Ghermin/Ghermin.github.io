@@ -12,6 +12,13 @@
   <meta property="og:title" content="Bored Dev Playground">
   <meta property="og:description" content="Les petits projets d'un dev qui s'ennuie.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ghermin.github.io/">
+  <meta property="og:image" content="https://ghermin.github.io/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Le logo du Bored Dev Playground et les icônes de ses projets">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://ghermin.github.io/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -46,14 +53,24 @@
 
   <main>
     <section class="hero">
-      <p class="kicker">$ ls ~/projets <span class="count">12 résultats</span></p>
+      <p class="kicker">$ ls ~/projets<span class="grep"> | grep <span data-f="windows">windows</span><span data-f="android">android</span><span data-f="web">web</span><span data-f="jeux">jeux</span></span> <span class="count"><span data-f="tout">12 résultats</span><span data-f="windows">6 résultats</span><span data-f="android">5 résultats</span><span data-f="web">4 résultats</span><span data-f="jeux">3 résultats</span></span></p>
       <h1>Bored Dev <span class="grad">Playground</span></h1>
       <p class="lead">Des petits outils libres, gratuits et sans pub.</p>
     </section>
 
+    <fieldset class="filtres">
+      <legend>Filtrer les projets</legend>
+      <input type="radio" name="f" id="f-tout" checked><label for="f-tout">tout</label>
+      <input type="radio" name="f" id="f-windows"><label for="f-windows">Windows</label>
+      <input type="radio" name="f" id="f-android"><label for="f-android">Android</label>
+      <input type="radio" name="f" id="f-web"><label for="f-web">Web</label>
+      <input type="radio" name="f" id="f-jeux"><label for="f-jeux">Jeux</label>
+    </fieldset>
+
     <ul class="grid" id="projets" role="list">
-      <li class="card">
+      <li class="card" data-p="windows">
         <img class="icon" src="assets/projects/jus.svg" alt="" width="56" height="56">
+        <p class="badge"><time datetime="2026-11-18">nouveau</time></p>
         <h2><a href="https://ghermin.github.io/jus/">Jus</a></h2>
         <p>Le pourcentage de batterie de ta souris, ton casque, tes écouteurs, ta manette et ton clavier, toujours visible dans la barre des tâches. Prévient avant la panne, sans logiciel de marque.</p>
         <ul class="tags" role="list"><li>Windows</li><li>Batterie</li><li>C#</li></ul>
@@ -62,8 +79,9 @@
           <a href="https://github.com/Ghermin/jus">Code</a>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-p="windows jeux">
         <img class="icon" src="assets/projects/dps-meters.svg" alt="" width="56" height="56">
+        <p class="badge"><time datetime="2026-11-19">mis à jour</time></p>
         <h2><a href="https://ghermin.github.io/dream-dps-meter/">DPS meters</a></h2>
         <p>Tes dégâts et ton DPS en direct, intégrés à l'interface du jeu et dans son style : Shape of Dreams, Raiders of Blackveil et Monster Hunter Wilds, d'autres à venir. Un installeur, deux clics.</p>
         <ul class="tags" role="list"><li>Windows</li><li>Jeux</li><li>Mods</li></ul>
@@ -72,8 +90,8 @@
           <a href="https://github.com/Ghermin/dream-dps-meter">Code</a>
         </div>
       </li>
-      <li class="card">
-        <img class="icon" src="assets/projects/rgb-manager.png" alt="" width="56" height="56">
+      <li class="card" data-p="windows">
+        <img class="icon" src="assets/projects/rgb-manager.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/rgb-manager/">Gestionnaire RGB</a></h2>
         <p>Une icône près de l'horloge pour régler d'un coup l'éclairage de la carte mère ASUS, de la RAM Corsair, du watercooling et du boîtier, sans Armoury Crate, iCUE ni OpenRGB. Fait pour un PC précis.</p>
         <ul class="tags" role="list"><li>Windows</li><li>RGB</li><li>C#</li></ul>
@@ -82,7 +100,7 @@
           <a href="https://github.com/Ghermin/rgb-manager">Code</a>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-p="web jeux">
         <img class="icon" src="assets/projects/mots-fleches.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/mots-fleches/">Mots fléchés</a></h2>
         <p>Des mots fléchés en français pour téléphone et tablette : grilles à volonté et grille du jour, grandes définitions, clavier intégré. Marche hors ligne, tout reste sur l'appareil.</p>
@@ -92,7 +110,7 @@
           <a href="https://github.com/Ghermin/mots-fleches">Code</a>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-p="windows android">
         <img class="icon" src="assets/projects/averse.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/averse/">Averse</a></h2>
         <p>Le client torrent sans pub ni bloatware, pour PC et téléphone : colle un lien magnet ou ouvre un .torrent, c'est téléchargé. Le nécessaire, rien de plus.</p>
@@ -102,7 +120,7 @@
           <a href="https://github.com/Ghermin/averse">Code</a>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-p="android">
         <img class="icon" src="assets/projects/impression-locale.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/impression-locale/">Impression locale</a></h2>
         <p>Imprimer sur une jet d'encre Epson depuis Android, sans appli Epson et sans passer par Internet : l'imprimante apparaît dans le menu Imprimer de toutes les applis.</p>
@@ -112,7 +130,7 @@
           <a href="https://github.com/Ghermin/impression-locale">Code</a>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-p="android jeux">
         <img class="icon" src="assets/projects/blindtest.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/blindtest-de-fin-de-soiree/">Blind Test de fin de soirée</a></h2>
         <p>Un blind test à plusieurs : l'appli Android héberge la partie, les invités répondent depuis leur téléphone et la TV joue les extraits. Playlists Spotify ou Deezer.</p>
@@ -122,8 +140,7 @@
           <a href="https://github.com/Ghermin/blindtest-de-fin-de-soiree">Code</a>
         </div>
       </li>
-
-      <li class="card">
+      <li class="card" data-p="web">
         <img class="icon" src="assets/projects/according.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/accordeur/">According</a></h2>
         <p>Accordeur de guitare dans le navigateur. Détecte la corde jouée toute seule, propose huit accordages (Drop D, DADGAD, Open G…). Rien n'est enregistré ni envoyé.</p>
@@ -133,8 +150,7 @@
           <a href="https://github.com/Ghermin/accordeur">Code</a>
         </div>
       </li>
-
-      <li class="card">
+      <li class="card" data-p="windows">
         <img class="icon" src="assets/projects/autowash.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/autowash/">Autowash</a></h2>
         <p>Analyse la sécurité et la santé d'un PC Windows, explique chaque problème et le corrige en un clic : malwares, vulnérabilités, nettoyage, pilotes, mises à jour.</p>
@@ -144,8 +160,7 @@
           <a href="https://github.com/Ghermin/autowash">Code</a>
         </div>
       </li>
-
-      <li class="card">
+      <li class="card" data-p="android windows">
         <img class="icon" src="assets/projects/camtel.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/camtel/">CamTel</a></h2>
         <p>Ton téléphone Android devient une webcam pour Windows, en Wi-Fi ou en USB. Marche dans Zoom, Teams, Discord, OBS. L'alternative libre et sans pub à DroidCam.</p>
@@ -155,8 +170,7 @@
           <a href="https://github.com/Ghermin/camtel">Code</a>
         </div>
       </li>
-
-      <li class="card">
+      <li class="card" data-p="web">
         <img class="icon" src="assets/projects/no-noob-no-arnaque.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/no-noob-no-arnaque/">No Noob No Arnaque</a></h2>
         <p>Diagnostic OBD-II dans le navigateur pour vérifier ce que dit le garagiste : codes défaut expliqués, effacements suspects, comparaison avant et après réparation.</p>
@@ -166,8 +180,7 @@
           <a href="https://github.com/Ghermin/no-noob-no-arnaque">Code</a>
         </div>
       </li>
-
-      <li class="card">
+      <li class="card" data-p="web android">
         <img class="icon" src="assets/projects/la-quittance.svg" alt="" width="56" height="56">
         <h2><a href="https://ghermin.github.io/la-quittance/">La Quittance</a></h2>
         <p>Génère les quittances de loyer en PDF et les envoie par Gmail depuis le téléphone, avec un rappel chaque mois. Aucun serveur : tout reste sur l'appareil.</p>

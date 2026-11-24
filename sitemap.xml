@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- La page d'accueil et la page de chaque carte. tools/check.mjs vérifie que la liste suit index.html. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ghermin.github.io/</loc></url>
+  <url><loc>https://ghermin.github.io/jus/</loc></url>
+  <url><loc>https://ghermin.github.io/dream-dps-meter/</loc></url>
+  <url><loc>https://ghermin.github.io/rgb-manager/</loc></url>
+  <url><loc>https://ghermin.github.io/mots-fleches/</loc></url>
+  <url><loc>https://ghermin.github.io/averse/</loc></url>
+  <url><loc>https://ghermin.github.io/impression-locale/</loc></url>
+  <url><loc>https://ghermin.github.io/blindtest-de-fin-de-soiree/</loc></url>
+  <url><loc>https://ghermin.github.io/accordeur/</loc></url>
+  <url><loc>https://ghermin.github.io/autowash/</loc></url>
+  <url><loc>https://ghermin.github.io/camtel/</loc></url>
+  <url><loc>https://ghermin.github.io/no-noob-no-arnaque/</loc></url>
+  <url><loc>https://ghermin.github.io/la-quittance/</loc></url>
+</urlset>
