@@ -2,6 +2,7 @@
 // Usage : cd brand && npm install && npm run icons            (tout)
 //         node build.js camtel averse                         (seulement ces icônes)
 //         node build.js --sheet                               (planche de contrôle brand/sheet.png)
+//         node build.js --social [jus …]                      (images de partage des repos, brand/social/)
 //
 // Chaque SVG suit la même grille : carré 64, coins rx 16, dégradé diagonal à deux couleurs,
 // et un <g id="glyph"> blanc fait uniquement de <path> (traits de 5, bouts ronds).
@@ -355,6 +356,92 @@ function og() {
   write(path.join(PLAYGROUND, 'og.png'), new Resvg(svg, { fitTo: { mode: 'original' } }).render().asPng());
 }
 
+// Images de partage des repos GitHub (brand/social/<id>.png, 1280 × 640), à envoyer à la main
+// dans Settings → Social preview de chaque repo (l'API ne le permet pas). Rendues par Edge ou
+// Chrome sans fenêtre, pour avoir les polices du kit (chargées depuis Google Fonts).
+const TAGLINES = {
+  jus: 'La batterie de tes périphériques, toujours visible dans la barre des tâches',
+  'dps-meters': 'Tes dégâts et ton DPS en direct, dans l\'interface du jeu',
+  'rgb-manager': 'Tout l\'éclairage RGB du PC d\'un clic, sans Armoury Crate ni iCUE',
+  'mots-fleches': 'Des mots fléchés en français, hors ligne, sur téléphone et tablette',
+  averse: 'Le client torrent sans pub ni bloatware, pour PC et téléphone',
+  'impression-locale': 'Imprimer sur une jet d\'encre Epson depuis Android, sans appli ni cloud',
+  blindtest: 'Le blind test à plusieurs : la TV joue les extraits, les téléphones répondent',
+  according: 'Accordeur de guitare dans le navigateur, rien n\'est enregistré ni envoyé',
+  autowash: 'La sécurité et la santé du PC Windows, expliquées et corrigées en un clic',
+  camtel: 'Ton téléphone Android devient une webcam pour Windows, en Wi-Fi ou en USB',
+  'no-noob-no-arnaque': 'Diagnostic OBD-II dans le navigateur, pour vérifier ce que dit le garagiste',
+  'la-quittance': 'Les quittances de loyer en PDF, envoyées chaque mois depuis le téléphone',
+};
+
+function browser() {
+  const found = [
+    'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
+    'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
+    'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    '/usr/bin/google-chrome', '/usr/bin/chromium',
+  ].find((f) => fs.existsSync(f));
+  if (!found) throw new Error('--social : il faut Edge ou Chrome');
+  return found;
+}
+
+function social(only) {
+  const { execFileSync } = require('node:child_process');
+  const os = require('node:os');
+  const html = fs.readFileSync(path.join(PLAYGROUND, 'index.html'), 'utf8');
+  const cardsHtml = [...html.matchAll(/<li class="card" data-p="([^"]+)">([\s\S]*?)<\/li>/g)];
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/ ([:;?!])/g, ' $1');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'pg-social-'));
+  const exe = browser();
+  const logo = load('playground').svg;
+  for (const [, platforms, body] of cardsHtml) {
+    const id = body.match(/assets\/projects\/([\w-]+)\.svg/)[1];
+    if (only.length && !only.includes(id)) continue;
+    const [, url, name] = body.match(/<h2><a href="([^"]+)">([^<]+)<\/a><\/h2>/);
+    if (!TAGLINES[id]) throw new Error(`--social : pas d'accroche pour ${id} dans TAGLINES`);
+    const icon = load(id);
+    const page = `<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500;600&display=block">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  body {
+    background: #f6f5f1 radial-gradient(circle, rgba(23,22,26,.11) 1.4px, transparent 1.6px) 0 0 / 30px 30px;
+    color: #17161a; font-family: 'Bricolage Grotesque', sans-serif;
+    padding: 80px 88px 64px; display: flex; flex-direction: column;
+  }
+  .top { display: flex; align-items: center; gap: 48px; flex: 1; }
+  .icon { width: 220px; height: 220px; flex: none; }
+  h1 { font-size: ${name.length > 18 ? 76 : 100}px; font-weight: 800; line-height: .98; letter-spacing: -.035em; font-variation-settings: 'wdth' 88; }
+  .bar { width: 120px; height: 12px; border-radius: 6px; margin: 26px 0 24px; background: linear-gradient(90deg, ${icon.c1}, ${icon.c2}); }
+  p { font-size: 34px; line-height: 1.28; color: #5d5b66; max-width: 820px; font-weight: 500; }
+  .bottom { display: flex; justify-content: space-between; align-items: center; gap: 32px; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 24px; color: #5d5b66; }
+  .pg { display: flex; align-items: center; gap: 14px; }
+  .pg img { width: 40px; height: 40px; }
+  .url { color: #17161a; font-weight: 500; }
+</style>
+<div class="top">
+  <img class="icon" src="data:image/svg+xml;base64,${Buffer.from(icon.svg).toString('base64')}">
+  <div><h1>${esc(name)}</h1><div class="bar"></div><p>${esc(TAGLINES[id])}</p></div>
+</div>
+<div class="bottom">
+  <span class="pg"><img src="data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}">bored dev playground${url.length > 44 ? '' : ' · ' + platforms.split(' ').join(' · ')}</span>
+  <span class="url">${esc(url.replace(/^https:\/\//, ''))}</span>
+</div>`;
+    const file = path.join(tmp, `${id}.html`);
+    fs.writeFileSync(file, page);
+    const out = path.join(BRAND, 'social', `${id}.png`);
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    execFileSync(exe, [
+      '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1',
+      `--user-data-dir=${path.join(tmp, 'profile')}`, '--virtual-time-budget=8000',
+      '--window-size=1280,640', `--screenshot=${out}`, 'file:///' + file.replace(/\\/g, '/'),
+    ], { stdio: 'ignore' });
+    written.push(path.relative(PROJECTS, out));
+  }
+  fs.rmSync(tmp, { recursive: true, force: true });
+}
+
 // ---------------------------------------------------------------- main
 
 const args = process.argv.slice(2);
@@ -363,6 +450,8 @@ const ids = args.filter((a) => !a.startsWith('--'));
 const chosen = ids.length ? ids : all;
 if (args.includes('--og')) {
   og();
+} else if (args.includes('--social')) {
+  social(ids);
 } else if (args.includes('--sheet')) {
   sheet(chosen);
 } else {

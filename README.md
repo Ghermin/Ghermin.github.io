@@ -44,6 +44,9 @@ cd brand && npm install && node build.js            # toutes les icônes
 node build.js camtel                                # une seule
 node build.js --sheet                               # refait sheet.png
 node build.js --og                                  # refait og.png, l'image de partage (icônes dans l'ordre des cartes)
+node build.js --social                     # refait brand/social/*.png, les images de partage des repos (1280 × 640)
 ```
 
 Le script écrit directement dans les projets voisins : favicons (SVG, ICO, PNG), icônes Apple et de manifeste (avec version masquable), `.ico` des applis Windows, et icônes adaptatives Android (fond, dessin et version monochrome pour les icônes à thème d'Android 13). Ensuite, commiter dans chaque projet touché. Le dessin du `<g id="glyph">` ne doit contenir que des `<path>` blancs : c'est ce qui permet de le convertir en vector drawable Android.
+
+Les images de `brand/social/` sont à envoyer à la main dans Settings → General → Social preview de chaque repo (l'API de GitHub ne le permet pas). Elles reprennent le nom de la carte et une accroche courte (`TAGLINES` dans `brand/build.js`) ; `--social` a besoin d'Edge ou de Chrome et d'Internet pour les polices.
