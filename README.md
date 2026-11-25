@@ -50,3 +50,13 @@ node build.js --social                     # refait brand/social/*.png, les imag
 Le script écrit directement dans les projets voisins : favicons (SVG, ICO, PNG), icônes Apple et de manifeste (avec version masquable), `.ico` des applis Windows, et icônes adaptatives Android (fond, dessin et version monochrome pour les icônes à thème d'Android 13). Ensuite, commiter dans chaque projet touché. Le dessin du `<g id="glyph">` ne doit contenir que des `<path>` blancs : c'est ce qui permet de le convertir en vector drawable Android.
 
 Les images de `brand/social/` sont à envoyer à la main dans Settings → General → Social preview de chaque repo (l'API de GitHub ne le permet pas). Elles reprennent le nom de la carte et une accroche courte (`TAGLINES` dans `brand/build.js`) ; `--social` a besoin d'Edge ou de Chrome et d'Internet pour les polices.
+
+## Dates de mise à jour des cartes
+
+Chaque carte affiche la date de dernière mise à jour du projet (et sa version si la dernière release en a une), en HTML statique. Pour les rafraîchir (Node 18+) :
+
+```bash
+GH_TOKEN=$(gh auth token) node tools/dates.mjs
+```
+
+Date retenue : la plus récente entre la dernière release et le dernier commit qui touche l'appli elle-même (licence, README, CLAUDE.md, `.github/`, `docs/`, `site/` et la copie du kit ne comptent pas).
