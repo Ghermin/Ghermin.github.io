@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contrôleur Lido 200 · Bored Dev Playground</title>
+  <!-- Page cachée : aucun lien depuis le site, absente du sitemap, non indexée. Accessible par lien direct seulement. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0e12" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/kit/playground.css">
+  <link rel="stylesheet" href="/aquarium-lido200-k7q2/page.css">
+</head>
+<body class="pg-page">
+  <nav class="pg-strip" aria-label="Bored Dev Playground">
+    <div class="pg-strip__in">
+      <a class="pg-strip__home" href="/">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <linearGradient id="strip-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7c5cff"/>
+              <stop offset="1" stop-color="#ff6b6b"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="16" fill="url(#strip-bg)"/>
+          <path d="M14 27h14M36 27h14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+          <path d="M16 27a5 5 0 0 0 10 0zM38 27a5 5 0 0 0 10 0z" fill="#fff"/>
+          <rect x="23.5" y="40.5" width="17" height="5" rx="2.5" fill="#fff"/>
+        </svg>
+        <b>bored dev playground</b><span class="pg-strip__crumb">/ aquarium</span>
+      </a>
+      <a class="pg-strip__all" href="/">tous les projets <span aria-hidden="true">→</span></a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="pg-hero">
+      <div class="pg-hero__tags">
+        <p class="pg-kicker">$ cat ~/aquarium/lido-200.md</p>
+        <ul class="pg-chips">
+          <li>Juwel Lido 200 · 200 L</li>
+          <li>eau douce + CO2</li>
+          <li>sans soudure</li>
+          <li>ESP32 · ESPHome</li>
+        </ul>
+      </div>
+      <h1>Contrôleur <span class="pg-grad">Lido 200</span></h1>
+      <p class="pg-lead">La liste complète du contrôleur DIY : à quoi sert chaque composant, où l'acheter, comment le brancher et quelles sécurités il gère. Tout se monte au tournevis et avec des connecteurs à clipser.</p>
+      <p class="aq-total">Total matériel <b>≈ 630 €</b> + outils ≈ 30 €</p>
+      <p class="pg-meta">Prix relevés sur Amazon.fr le 27/11/2026, en pleine période de Black Friday : ils peuvent bouger.</p>
+      <nav class="aq-toc" aria-label="Sections">
+        <a href="#cerveau">cerveau</a>
+        <a href="#mesures">mesures</a>
+        <a href="#actions">actions</a>
+        <a href="#co2">CO2</a>
+        <a href="#prises">prises</a>
+        <a href="#installation">installation</a>
+        <a href="#outils">outils</a>
+        <a href="#brochage">brochage</a>
+        <a href="#securites">sécurités</a>
+      </nav>
+    </section>
+
+    <section class="pg-section" id="cerveau">
+      <p class="pg-kicker">01 · le cerveau</p>
+      <h2>Le cerveau</h2>
+      <div class="aq-table-wrap">
+        <table class="aq-table">
+          <thead><tr><th>Composant</th><th>À quoi il sert</th><th>Prix</th><th>Lien</th></tr></thead>
+          <tbody>
+            <tr><td>ESP32 30 broches + carte d'extension à borniers (lot de 3)<span class="aq-warn">Vérifier que le lot contient bien les ESP32, pas seulement les cartes</span></td><td class="aq-use">Lit tous les capteurs, pilote pompes, relais et prises, applique les sécurités même sans internet. Les 2 en plus servent de rechange.</td><td class="aq-price">10,80 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0DLKG9TNM" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Chargeur USB 5 V 2 A</td><td class="aq-use">Alimente l'ESP32, les capteurs et le module relais. Sur une prise normale, jamais sur une Shelly.</td><td class="aq-price">8,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0G4Q88TRK" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pg-section" id="mesures">
+      <p class="pg-kicker">02 · les mesures</p>
+      <h2>Les mesures</h2>
+      <div class="aq-table-wrap">
+        <table class="aq-table">
+          <thead><tr><th>Composant</th><th>À quoi il sert</th><th>Prix</th><th>Lien</th></tr></thead>
+          <tbody>
+            <tr><td>2 sondes DS18B20 étanches + adaptateurs</td><td class="aq-use">Température de l'eau à deux endroits. Coupe le chauffage au-dessus de 29 °C, allume le ventilateur à 27 °C, détecte une sonde défaillante.</td><td class="aq-price">10,49 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0HP5XM8SW" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Kit pH DFRobot Gravity V2 (SEN0161-V2)<span class="aq-warn">114 € sur Amazon, ≈ 40 € chez DFRobot avec les solutions de calibration</span></td><td class="aq-use">Mesure le pH. Coupe le CO2 si le pH descend trop bas, pour protéger les poissons.</td><td class="aq-price">≈ 40 €</td><td class="aq-link"><a href="https://www.dfrobot.com/product-1782.html" target="_blank" rel="noopener">DFRobot ↗</a><a href="https://www.amazon.fr/dp/B0F61GR82L" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Isolateur de signal DFRobot</td><td class="aq-use">Isole la sonde pH pour qu'elle ne soit pas perturbée par la sonde TDS, le chauffage ou le filtre.</td><td class="aq-price">41,45 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0FL1HLBTZ" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Capteur TDS DFRobot Gravity (SEN0244)</td><td class="aq-use">Mesure les matières dissoutes : indique quand faire un changement d'eau et suit l'effet des engrais. Allumé seulement pendant la mesure (relais 7), pour ne pas gêner le pH et user moins la sonde.</td><td class="aq-price">23,40 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B07H2QJQ5X" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>2 capteurs de niveau XKC-Y25-NPN</td><td class="aq-use">Collés sur la vitre. Le bas déclenche le remplissage automatique, le haut sert de sécurité anti-débordement.</td><td class="aq-price">2 × 12,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0C1ZVZF2L" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Capteur de fuite (lot de 2)</td><td class="aq-use">Plaque au fond du meuble. En cas de fuite : alarme, notification, et tout s'arrête sauf le filtre et le chauffage.</td><td class="aq-price">5,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B017M1NJR0" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Drop checker myScape</td><td class="aq-use">Test visuel permanent du CO2 dans l'eau : vert = bon, bleu = pas assez, jaune = trop.</td><td class="aq-price">13,44 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0BZN8SKVJ" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pg-section" id="actions">
+      <p class="pg-kicker">03 · les actions</p>
+      <h2>Les actions</h2>
+      <div class="aq-table-wrap">
+        <table class="aq-table">
+          <thead><tr><th>Composant</th><th>À quoi il sert</th><th>Prix</th><th>Lien</th></tr></thead>
+          <tbody>
+            <tr><td>Module 8 relais à optocoupleur, cavaliers H/L<span class="aq-warn">Choisir la variante 5V, cavaliers sur H</span></td><td class="aq-use">8 interrupteurs commandés par l'ESP32 pour allumer le 12 V. Le 12 V ne touche jamais l'ESP32.</td><td class="aq-price">15,08 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B07QLYZ364" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Pompes Kamoer NKP 12 V (lot de 5)<span class="aq-warn">Choisir la variante 12V</span></td><td class="aq-use">3 pour les engrais (doses au millilitre), 1 pour le remplissage automatique, 1 de rechange.</td><td class="aq-price">56,00 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0FP8TY4SS" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Tuyau silicone 2×4 mm, 4 m<span class="aq-warn">Vérifier le diamètre des embouts des pompes</span></td><td class="aq-use">Relie les bouteilles d'engrais et le bidon au bac.</td><td class="aq-price">11,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0CYPJKML7" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Buzzer actif 12 V</td><td class="aq-use">Alarme sur place (fuite, température, niveau), même sans internet.</td><td class="aq-price">6,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B09DRTBG9B" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Ventilateur 12 V 120 mm</td><td class="aq-use">Refroidit l'eau par évaporation pendant les canicules, à partir de 27 °C.</td><td class="aq-price">7,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0FGCM7JRF" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Bidon alimentaire 10 L avec robinet</td><td class="aq-use">Réserve d'eau pour le remplissage automatique. 10 L au maximum : même en cas de panne, le bac ne peut pas déborder.</td><td class="aq-price">10,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B003LSU6K2" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Distributeur EHEIM Autofeeder</td><td class="aq-use">Nourrit les poissons à heure fixe, avec sa propre minuterie.</td><td class="aq-price">50,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B000A216C4" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pg-section" id="co2">
+      <p class="pg-kicker">04 · le CO2</p>
+      <h2>Le CO2</h2>
+      <div class="aq-table-wrap">
+        <table class="aq-table">
+          <thead><tr><th>Composant</th><th>À quoi il sert</th><th>Prix</th><th>Lien</th></tr></thead>
+          <tbody>
+            <tr><td>Cylindre SodaStream 60 L à visser<span class="aq-warn">Pas de cylindre « Quick Connect » (rose) : il n'est pas compatible</span></td><td class="aq-use">Réserve de CO2, environ 1 à 2 mois pour 200 L. S'échange en supermarché.</td><td class="aq-price">27,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B005ERICB8" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Adaptateur TR21.4 → W21.8</td><td class="aq-use">Permet de visser le cylindre SodaStream sur le détendeur.</td><td class="aq-price">21,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0DJ7CDGR4" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Détendeur QWORK (double manomètre, compte-bulles, clapet, électrovanne 12 V)</td><td class="aq-use">Règle le débit de CO2. Son électrovanne se branche sur la Shelly « CO2 » : le CO2 démarre 1 h avant la lumière et s'arrête 1 h avant la nuit.</td><td class="aq-price">44,98 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0C4GF4HCG" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Tuyau spécial CO2 JBL, 3 m</td><td class="aq-use">Tuyau étanche au CO2 entre le détendeur et le diffuseur.</td><td class="aq-price">5,79 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B09CQ9MW1B" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Clapets anti-retour inox (lot de 2)</td><td class="aq-use">Empêchent l'eau de remonter vers le détendeur.</td><td class="aq-price">9,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B08NTLBFVB" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Diffuseur céramique FZONE Neo<span class="aq-warn">Taille M conseillée pour 200 L</span></td><td class="aq-use">Transforme le CO2 en fines bulles qui se dissolvent dans l'eau.</td><td class="aq-price">12,34 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B09WJ5BJH9" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pg-section" id="prises">
+      <p class="pg-kicker">05 · les prises connectées</p>
+      <h2>Les prises connectées</h2>
+      <p class="pg-section__lead">Tout le 230 V passe par elles, branchées au mur. Aucun câblage secteur.</p>
+      <div class="aq-table-wrap">
+        <table class="aq-table">
+          <thead><tr><th>Composant</th><th>À quoi il sert</th><th>Prix</th><th>Lien</th></tr></thead>
+          <tbody>
+            <tr><td>4 × Shelly Plug S Gen3</td><td class="aq-use"><strong>Chauffage</strong> : seconde sécurité au-dessus de 29 °C. <strong>Filtre</strong> : bouton pause qui se rallume tout seul après 15 min. <strong>Éclairage</strong> : plannings. <strong>CO2</strong> : électrovanne du détendeur. Toutes mesurent leur consommation, ce qui révèle une panne.</td><td class="aq-price">4 × 19,94 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0DJFQXTY2" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pg-section" id="installation">
+      <p class="pg-kicker">06 · alimentation et installation</p>
+      <h2>Alimentation et installation</h2>
+      <div class="aq-table-wrap">
+        <table class="aq-table">
+          <thead><tr><th>Composant</th><th>À quoi il sert</th><th>Prix</th><th>Lien</th></tr></thead>
+          <tbody>
+            <tr><td>Alimentation 12 V 3 A (jack 5,5 × 2,1 mm)</td><td class="aq-use">Alimente pompes, buzzer et ventilateur, uniquement à travers les relais.</td><td class="aq-price">12,41 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0DHPPLMYQ" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Jacks 5,5 × 2,1 mm à borniers</td><td class="aq-use">Raccorde l'alimentation 12 V au câblage sans soudure.</td><td class="aq-price">6,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0H2H8RZ3C" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Assortiment WAGO (50 bornes)</td><td class="aq-use">Jonctions du 12 V sans outil, en clipsant.</td><td class="aq-price">19,90 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0GGRG6BHN" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Câbles Dupont ELEGOO (120 pièces)</td><td class="aq-use">Relient les capteurs et les relais à l'ESP32.</td><td class="aq-price">8,54 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B01JD5WCG2" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Câble 2 × 0,5 mm² rouge/noir, 5 m</td><td class="aq-use">Côté 12 V et rallonges des capteurs.</td><td class="aq-price">9,55 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0G392WJNY" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Boîte étanche Legrand Plexo 220×170</td><td class="aq-use">Protège l'électronique, fixée au-dessus du niveau de l'eau.</td><td class="aq-price">16,31 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B009VN64XY" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Ventouses d'aquarium (lot de 12)</td><td class="aq-use">Fixent sondes et tuyaux dans le bac.</td><td class="aq-price">9,99 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0F6TV79MT" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Solutions tampon pH 4 / 7 / 10<span class="aq-warn">Inutiles si le kit pH vient de chez DFRobot (fournies)</span></td><td class="aq-use">Calibration de la sonde pH.</td><td class="aq-price">16,14 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0DFTQJGZZ" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pg-note"><strong>Total matériel ≈ 630 €</strong>, avec le kit pH à 40 € chez DFRobot et sans les solutions tampon.</p>
+    </section>
+
+    <section class="pg-section" id="outils">
+      <p class="pg-kicker">07 · outils</p>
+      <h2>Outils</h2>
+      <div class="aq-table-wrap">
+        <table class="aq-table">
+          <thead><tr><th>Outil</th><th>À quoi il sert</th><th>Prix</th><th>Lien</th></tr></thead>
+          <tbody>
+            <tr><td>Tournevis plat Wera 2,5 mm</td><td class="aq-use">Serrer les borniers.</td><td class="aq-price">4,19 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0001P18HI" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Pince à dénuder automatique VCELINK</td><td class="aq-use">Dénuder les fils proprement.</td><td class="aq-price">12,34 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B0DYRT82GN" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+            <tr><td>Multimètre KAIWEETS</td><td class="aq-use">Vérifier une tension en cas de doute (facultatif).</td><td class="aq-price">13,02 €</td><td class="aq-link"><a href="https://www.amazon.fr/dp/B08CX9W7G3" target="_blank" rel="noopener">Amazon ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pg-section" id="brochage">
+      <p class="pg-kicker">08 · brochage ESP32</p>
+      <h2>Brochage</h2>
+      <div class="aq-table-wrap">
+        <table class="aq-table aq-pins">
+          <thead><tr><th>Élément</th><th>Alimentation</th><th>Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Température 1 / 2</td><td><code>3V3</code></td><td><code>GPIO 4</code> / <code>GPIO 18</code></td></tr>
+            <tr><td>pH (via isolateur)</td><td><code>5V</code></td><td><code>GPIO 34</code></td></tr>
+            <tr><td>TDS</td><td><code>5V</code> via relais 7</td><td><code>GPIO 35</code></td></tr>
+            <tr><td>Niveau bas / niveau haut</td><td><code>5V</code></td><td><code>GPIO 27</code> / <code>GPIO 32</code></td></tr>
+            <tr><td>Fuite</td><td><code>3V3</code></td><td><code>GPIO 33</code></td></tr>
+            <tr><td>Relais 1, 2, 3 : engrais A, B, C</td><td><code>5V</code> (VCC du module)</td><td><code>GPIO 25</code>, <code>26</code>, <code>13</code></td></tr>
+            <tr><td>Relais 4 : buzzer</td><td></td><td><code>GPIO 17</code></td></tr>
+            <tr><td>Relais 5 : remplissage automatique</td><td></td><td><code>GPIO 19</code></td></tr>
+            <tr><td>Relais 6 : ventilateur</td><td></td><td><code>GPIO 23</code></td></tr>
+            <tr><td>Relais 7 : alimentation TDS</td><td></td><td><code>GPIO 16</code></td></tr>
+            <tr><td>Relais 8 : réserve</td><td></td><td>non branché</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pg-note">Toutes les masses vont sur <code>GND</code>. Côté 12 V : <strong>+</strong> → <code>COM</code> des relais 1 à 6, <code>NO</code> → + de chaque appareil, − de chaque appareil → − du 12 V. Relais 7 : <code>5V</code> de l'ESP32 → <code>COM</code>, <code>NO</code> → + de la carte TDS.</p>
+    </section>
+
+    <section class="pg-section" id="securites">
+      <p class="pg-kicker">09 · sécurités</p>
+      <h2>Les sécurités gérées par l'ESP32</h2>
+      <ul class="aq-list">
+        <li><strong>Au-dessus de 29 °C</strong> : chauffage coupé, ventilateur allumé, alarme.</li>
+        <li><strong>pH trop bas</strong> : CO2 coupé et alerte.</li>
+        <li><strong>Fuite</strong> : alarme, notification, arrêt des pompes et du CO2.</li>
+        <li><strong>Remplissage automatique</strong> : 3 min maximum par cycle, 1,5 L par jour au maximum, arrêt immédiat si le capteur de niveau haut détecte de l'eau.</li>
+        <li><strong>Sans internet ni Raspberry Pi</strong>, toutes ces sécurités continuent de fonctionner.</li>
+      </ul>
+    </section>
+
+    <div class="pg-end"></div>
+  </main>
+
+  <footer class="pg-foot">
+    <div class="pg-foot__in">
+      <p>Fait par <a href="https://github.com/Ghermin">Ghermin</a>, un jour d'ennui.</p>
+      <p>Page non répertoriée</p>
+    </div>
+  </footer>
+</body>
+</html>

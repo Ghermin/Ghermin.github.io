@@ -1,0 +1,87 @@
+/* Page cachée « Contrôleur Lido 200 » : tableaux de composants, lisibles en cartes sur téléphone.
+   Couleurs et polices : celles du kit, rien de plus. */
+
+.aq-total {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 10px 16px;
+  border: 1px solid var(--pg-line);
+  border-radius: var(--pg-radius-sm);
+  background: var(--pg-surface);
+  font: 500 14px/1.4 var(--pg-mono);
+  color: var(--pg-muted);
+}
+.aq-total b { font-size: 20px; color: var(--pg-text); font-variant-numeric: tabular-nums; }
+
+.aq-toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.aq-toc a {
+  padding: 6px 12px;
+  border: 1px solid var(--pg-line);
+  border-radius: 999px;
+  background: var(--pg-surface);
+  font: 12.5px/1.4 var(--pg-mono);
+  color: var(--pg-muted);
+  text-decoration: none;
+}
+.aq-toc a:hover { color: var(--pg-text); border-color: var(--pg-muted); }
+
+.aq-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--pg-line);
+  border-radius: var(--pg-radius);
+  background: var(--pg-surface);
+  box-shadow: var(--pg-shadow);
+}
+.aq-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.aq-table th,
+.aq-table td { padding: 14px 16px; border-bottom: 1px solid var(--pg-line); text-align: left; vertical-align: top; }
+.aq-table tr:last-child td { border-bottom: none; }
+.aq-table th {
+  background: var(--pg-surface-2);
+  font: 500 11.5px/1.4 var(--pg-mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--pg-muted);
+}
+.aq-table td:first-child { width: 30%; font-weight: 600; }
+.aq-table td.aq-use { color: var(--pg-muted); }
+.aq-table td.aq-price { width: 1%; white-space: nowrap; font-family: var(--pg-mono); font-size: 14px; font-variant-numeric: tabular-nums; }
+.aq-table td.aq-link { width: 1%; white-space: nowrap; }
+.aq-table a {
+  font: 500 13px/1.4 var(--pg-mono);
+  color: var(--pg-accent);
+  text-decoration: none;
+}
+.aq-table a:hover { text-decoration: underline; }
+.aq-table td.aq-link a + a { display: block; margin-top: 6px; }
+.aq-warn { display: block; margin-top: 4px; font: 12.5px/1.5 var(--pg-mono); color: var(--pg-muted); font-weight: 400; }
+
+.aq-pins td:first-child { width: auto; }
+.aq-pins code { white-space: nowrap; }
+
+.aq-list { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 720px; color: var(--pg-muted); }
+.aq-list strong { color: var(--pg-text); }
+
+@media (max-width: 680px) {
+  .aq-table-wrap { overflow: visible; border: none; background: none; box-shadow: none; }
+  .aq-table, .aq-table tbody, .aq-table tr, .aq-table td { display: block; width: 100%; }
+  .aq-table thead { display: none; }
+  .aq-table tr {
+    margin-bottom: 12px;
+    padding: 16px;
+    border: 1px solid var(--pg-line);
+    border-radius: var(--pg-radius);
+    background: var(--pg-surface);
+    box-shadow: var(--pg-shadow);
+  }
+  .aq-table td { padding: 0; border: none; }
+  .aq-table td:first-child { width: 100%; font-size: 16.5px; }
+  .aq-table td.aq-use { margin-top: 6px; }
+  .aq-table td.aq-price,
+  .aq-table td.aq-link { display: inline-block; width: auto; margin-top: 12px; }
+  .aq-table td.aq-price { margin-right: 16px; }
+  .aq-table td.aq-link a + a { display: inline; margin: 0 0 0 12px; }
+  .aq-pins td + td { margin-top: 4px; font-family: var(--pg-mono); font-size: 13.5px; color: var(--pg-muted); }
+}
