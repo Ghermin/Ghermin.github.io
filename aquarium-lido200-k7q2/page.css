@@ -56,6 +56,18 @@
 }
 .aq-table a:hover { text-decoration: underline; }
 .aq-table td.aq-link a + a { display: block; margin-top: 6px; }
+/* Vignette produit : photo sur fond blanc (celui des fiches), dans les deux thèmes */
+.aq-item { display: flex; align-items: flex-start; gap: 12px; }
+.aq-thumb {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  padding: 4px;
+  border: 1px solid var(--pg-line);
+  border-radius: 10px;
+  background: #fff;
+  object-fit: contain;
+}
 .aq-warn { display: block; margin-top: 4px; font: 12.5px/1.5 var(--pg-mono); color: var(--pg-muted); font-weight: 400; }
 
 .aq-pins td:first-child { width: auto; }
